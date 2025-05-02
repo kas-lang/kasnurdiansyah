@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+.logo {
+    width: 100%; /* membuat gambar penuh pada kontainer */
+    max-width: 45px; /* ukuran maksimum */
+    height: auto;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+.navbar-brand{
+    width: 10px;
+    height: 10px;
+}
+.button {
+    border-radius: 10px;
+    background-color: rgb(27, 26, 26);
+    color: white;
+    margin-right: 50px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 10px;
+}
+.contact-form {
+background-color: #b9b3b3;
+border-radius: 10px;
+padding: 30px;
+margin-top: 50px;
+}
+
+.button-right {
+    float: right;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.btn-custom:hover {
+    background-color: white; /* Change background on hover */
+    color: black; /* Change text color on hover */
+    border: 2px solid #4a3a3a; /* Add border on hover */
+}
