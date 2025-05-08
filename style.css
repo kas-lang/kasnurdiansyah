@@ -1,0 +1,102 @@
+body {
+    background-color: rgb(163, 170, 181);
+    font-weight: bold;
+}
+.logo {
+    width: 100%; /* membuat gambar penuh pada kontainer */
+    max-width: 45px; /* ukuran maksimum */
+    height: auto;   
+    margin-left: 15px;
+    margin-right: 20px;
+}
+.navbar-brand{
+    width: 10px;
+    height: 10px;
+}
+.button {
+    border-radius: 10px;
+    background-color: rgb(27, 26, 26);
+    color: white;
+    margin-right: 50px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 10px;
+}
+.form-container {
+    background-color: rgb(163, 170, 181);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+.form-container h1{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 32px;
+}
+
+.checkbox{
+    border-radius: 20px;
+    box-shadow: black;
+}
+
+.btn-submit {
+    background-color: #191825;
+    color: white;
+    border-radius: 20px;
+    padding: 6px 30px;
+    text-transform: lowercase;
+    font-weight: bold;
+    float: right;
+}
+
+.header{
+    text-align: center;
+    margin-top: 20px;
+    background-color: white;
+}
+
+#flexbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -11px;
+    background-color: white;
+}
+
+.project-card {
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+}
+
+.card-body img.tech-icon {
+    width: 24px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+.buttonmain{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-secondary{
+    background-color: gray;
+    width: 50%;
+    border: none;
+}
+
+.btn-danger{
+    background-color: gray;
+    width: 50%;
+    border: none;
+    
+}
+
+
+
