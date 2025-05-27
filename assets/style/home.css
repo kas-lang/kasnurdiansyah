@@ -1,0 +1,123 @@
+body{
+    background-color: rgb(121, 121, 121);
+}
+.logo {
+    width: 100%; /* membuat gambar penuh pada kontainer */
+    max-width: 45px; /* ukuran maksimum */
+    height: auto;   
+    margin-left: 15px;
+    margin-right: 20px;
+}
+.navbar-brand{
+    width: 10px;
+    height: 10px;
+}
+.button {
+    border-radius: 10px;
+    background-color: rgb(27, 26, 26);
+    color: white;
+    margin-right: 50px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 10px;
+}
+
+.container {
+    max-width: 800px;
+    max-height: auto;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    
+}
+
+
+
+.sidekiri {
+    display: flex;
+    
+    
+}
+
+.text-container {
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 10px;
+
+}
+.justify-center {
+    text-align: justify;
+    margin-left: 5px;
+    margin-right: auto;
+}
+
+.buttons {
+    margin: 20px 0;
+}
+
+
+.contact {
+    background-color: #000000;
+    color: white;
+    margin-right: 10px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.download {
+    color: rgb(0, 0, 0);
+    background-color: #f0f0f0;
+    border: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #007BFF;
+}
+.sidekanan {
+    display: flex;
+   padding-right: 10px;
+}
+
+.profile-card {
+    flex: 1;
+    border: none;
+    text-align: center;
+    text-align: start;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.profile-img {
+    width: 200px;
+    height: auto;
+    justify-content: start;
+    object-fit: cover;
+    margin-left: 12px;
+    
+    
+}
+
+.profile-card h2 {
+    margin-left: 20px;
+    font-size: 24px;
+    
+    
+}
+.profile-card p {
+    color: #666;
+    margin-top: -10px;
+    margin-left: 50px;
+}   
+

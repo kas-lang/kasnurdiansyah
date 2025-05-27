@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{project.name}}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6ecf1;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .project-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .project-content {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .project-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+
+    .project-info {
+      flex: 1;
+    }
+
+    .project-info h3 {
+      margin-top: 0;
+    }
+
+    .info-item {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom total */
+  gap: 12px 20px;
+  margin-top: 10px;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #444;
+}
+.tech-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+
+    .project-desc {
+      margin-top: 30px;
+      line-height: 1.6;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="project-title">{{project.name}}</h1>
+
+    <div class="project-content">
+      <div class="project-image">
+       <img src="{{project.image_base64}}" alt="Project Image" />
+      </div>
+
+      <div class="project-info">
+        <div class="info-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>{{formatTanggal project.start_date}} - {{formatTanggal project.end_date}}</span>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-clock"></i>
+          <p>{{project.duration}}</p>
+        </div>
+
+        <h3>Technologies</h3>
+       <div class="tech-grid">
+  {{#if (includes project.techs 'next')}}
+    <div class="tech-item">
+      <img src="/logo/next.png" class="tech-icon" alt="Next.js" />
+      <span>Next Js</span>
+    </div>
+  {{/if}}
+
+  {{#if (includes project.techs 'typescript')}}
+    <div class="tech-item">
+      <img src="/logo/typescript.png" class="tech-icon" alt="TypeScript" />
+      <span>TypeScript</span>
+    </div>
+  {{/if}}
+
+  {{#if (includes project.techs 'react')}}
+    <div class="tech-item">
+      <img src="/logo/react.png" class="tech-icon" alt="React Js" />
+      <span>React Js</span>
+    </div>
+  {{/if}}
+
+  {{#if (includes project.techs 'node')}}
+    <div class="tech-item">
+      <img src="/logo/node.png" class="tech-icon" alt="Node Js" />
+      <span>Node Js</span>
+    </div>
+  {{/if}}
+</div>
+
+      </div>
+    </div>
+
+    <div class="project-desc">
+      <p>{{project.description}}</p>
+    </div>
+  </div>
+</body>
+</html>

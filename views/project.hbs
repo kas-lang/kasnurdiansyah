@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style/project.css">
+    <title>My Project</title>
+</head>
+<body>
+    {{> navbar}}
+    
+    <div class="form-container">
+        <h1>ADD MY PROJECT</h1>
+        
+        <form id="formProject" method="POST" action="/project">
+            <div class="form-group">
+                <label for="projectName">Project Name</label>
+                <input type="text" class="form-control" id="projectName" name="name" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="endDate">End Date</label>
+                     <input type="date" class="form-control" id="endDate" name="endDate" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" required></textarea>
+            </div>
+            <label>Technologies</label>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="form-check">
+                        <input class="mycheckbox" type="checkbox" name="techs" value="node" id="nodeJs">
+                        <label class="form-check-label" for="nodeJs">Node Js</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="mycheckbox" type="checkbox" name="techs" value="react" id="reactJs">
+                        <label class="form-check-label" for="reactJs">React Js</label>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-check">
+                        <input class="mycheckbox" type="checkbox" name="techs" value="next" id="nextJs">
+                        <label class="form-check-label" for="nextJs">Next Js</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="mycheckbox" type="checkbox" name="techs" value="typescript" id="typescript">
+                        <label class="form-check-label" for="typescript">TypeScript</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="uploadImage">Upload Image</label>
+                <input type="file" class="form-control" id="uploadImage" accept="image/*" required>
+                <input type="hidden" id="imageBase64" name="imageBase64">
+            </div>
+            <button type="submit" class="btn btn-submit">submit</button>
+        </form>
+    </div>
+
+    
+    <div class="header mt-5">
+        <h2>MY PROJECT</h2>
+    
+
+     <div id="flexbox">
+    {{#each projects}}
+  <div class="project-card">
+    <a href="/project/{{this.id}}" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="image-container">
+        <img src="{{this.image_base64}}" class="card-img-top" alt="project image" />
+      </div>
+      <div class="card-body">
+        <h3 class="project-title">{{this.name}} - {{getYear this.end_date}}</h3>
+        <p><strong>Duration:</strong> {{this.duration}}</p>
+        <p>{{this.description}}</p>
+
+        <div class="tech-icons">
+          {{#if (includes this.techs 'node')}}
+            <img src="/logo/node.png" class="tech-icon" alt="Node.js" />
+          {{/if}}
+          {{#if (includes this.techs 'react')}}
+            <img src="/logo/react.png" class="tech-icon" alt="React" />
+          {{/if}}
+          {{#if (includes this.techs 'next')}}
+            <img src="/logo/next.png" class="tech-icon" alt="Next.js" />
+          {{/if}}
+          {{#if (includes this.techs 'typescript')}}
+            <img src="/logo/typescript.png" class="tech-icon" alt="TypeScript" />
+          {{/if}}
+        </div>
+      </div>
+    </a>
+    <div class="buttonmain">
+  <div class="btn-wrapper">
+    <a href="/edit/{{this.id}}" class="btn-custom">Edit</a>
+  </div>
+
+  <form action="/project/delete/{{this.id}}" method="POST" class="btn-wrapper">
+    <button type="submit" class="btn-custom" onclick="return confirm('Yakin ingin menghapus project ini?')">
+      Delete
+    </button>
+  </form>
+</div>
+
+    </form>
+    </div>
+ 
+{{/each}}
+     </div>
+     </div>
+
+        <script>
+
+          // BUAT NAMPILIN GAMBAR DICARD NYA
+  document.getElementById("formProject").addEventListener("submit", function (e) {
+    const fileInput = document.getElementById("uploadImage");
+    if (fileInput.files.length > 0) {
+      e.preventDefault();
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+      reader.onload = function () {
+        document.getElementById("imageBase64").value = reader.result;
+        e.target.submit();
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
